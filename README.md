@@ -1,62 +1,66 @@
-Python for Informatics: Exploring Information
+Python for Informatics: Esplorare le Informazioni
 =============================================
 
-This is the source code for "Python for Informatics: Exploring Information"
-the web site for this book is http://www.pythonlearn.com/
+Questo è il codice sorgente di "Python for Informatics: Exploring Information"
+il sito di questo libro è http://www.pythonlearn.com/
 
-LaTeX Files
+File LaTeX
 -----------
 
-The source file for the book is *book.tex* - this file includes the 
-per-chapter files *00-cover.tex* through *AD-copyright.tex*
+Il file sorgente del libro è *book.tex* - questo file  include i file 
+per capitoli *00-cover.tex* fino a  *AD-copyright.tex*
 
-Workflow
---------
+Flusso di lavoro
+-----------
 
-Once you have LaTeX and HeVeA installed properly the workflow is simple. 
-To produce the PDF version of the book you type:
+Quando hai una adeguata installazione di LaTeX e HeVeA il flusso di
+lavoro è semplice.
+
+Per produrre la versione PDF del libro scrivi in console:
 
     bash book.sh
 
-This leaves the output on *book.pdf* and if you are on a Mac or Linux, it
-even attempts to open the PDF viewer for your system.
+Questo produce il risultato su *book.pdf* e se hai un Mac o Linux, cerca
+anche di aprire il visualizzatore PDF del tuo sistema.
 
-To produce the HTML version of the book you type:
+Per produrre la versione HTML del libro scrivi in console:
 
     bash html.sh
 
-This produces files in the *html* folder.  This folder contains the book, chapters in
-HTML and the images for the book.  
+Questo produce i file nella cartella *html* . In questa cartella trovi
+il libro, i capitoli in HTML e le immagini per il libro.
 
-To make EPUB or MOBI files I use the Calibre software.  The steps that I take in Caliper
-are here:
+Per ottenere i file nei formati EPUB e MOBI utilizzo il software
+Calibre. I passi da intraprendere in Calibre sono disponibili qui:
 
-* [Importing HTML into Calibre](CALIBRE.md)
+* [Importare HTML in Calibre](CALIBRE.md)
 
-I also have a server that builds the latest version from this repository at this URL:
+Ho anche un server che rigenera l'ultima versione dal repository a questo URL:
 
-* http://do1.dr-chuck.com/py4inf/EN-us/
+* http://do1.dr-chuck.com/py4inf/IT-it/ (* non ancora attivato - 6 Gennaio 2016*)
 
-I don't yet have the files that make up the build server checked in because it is 
-still a bit of a hack.  If you want to set up your own build server - I will check
-the files in.
+Non ho ancora i file che mi permettono di fare il check in automatico
+perchè risulta alquanto macchinoso. Se vuoi mettere su il tuo proprio
+server per la rigenerazione - il check in lo faccio io.
 
-Software Installation - Macintosh
----------------------------------
+Installazione del software - Macintosh
+--------------------------------------
 
-Running the script to produce the PDF is really easy and convenent on the Mac.  Simply
-install this software:
+Eseguire lo script per produrre il PDF sul Mac è molto semplice e conveniente.
+Semplicemente installa questo pacchetto:
 
 * https://tug.org/mactex/
 
-Make sure to install the extras as well.   If you have a recent Mac you **cannot** make
-the binary download of *hevea* work as it is a PowerPC binary.  If you want to do the HTML
-generation, you need a variant of Linux.
+Assicurati di installare anche gli extras. Se hai un Mac recente **non
+puoi** scaricare una versione binaria di *hevea* che ti funziona in
+quanto è compilato come binario PowerPC.
 
-Software Installation - Ubuntu
-------------------------------
+Se vuoi anche generare la versione HTML, hai bisogno di una variante di Linux.
 
-This is the rough set of steps I use on Ubuntu:
+Installazione del Software - Ubuntu
+-----------------------------------
+
+Questo sono i passaggi che ho usato in Ubuntu:
 
     sudo apt-get install texlive-latex-base
     sudo apt-get install texlive-latex-recommended
@@ -68,55 +72,59 @@ This is the rough set of steps I use on Ubuntu:
 
     sudo apt-get install texlive-lang-spanish texlive-doc-es 
 
-You could put them all on one long apt-get, but I like to see if they work :)
+Potresti metterli tutti in un unico e lungo comando apt-get, ma voglio
+vedere se fuziona :)
 
-Once this is done, the *book.sh* and *html.sh* should both work just fine.  For
-my own sanity, I have Parallels with an Ubuntu image that I can use to generate
-HTML.  It was easier than keeping a four-year-old MacBook running with Rosetta
-support.
+Quando questo è fatto, gli script *book.sh* e *html.sh* dovrebbero
+funzionare senza problemi. Per mia salute mentale utilizzo Parallels con
+una immagine Ubuntu per generare l'HTML. Era più semplice che mantenere
+un MacBook di 4 anni fa che faccia girare Rosetta.
 
-Translating This Book
+Tradurre Questo Libro
 ---------------------
 
-This book is available with a 
-Creative Commons
-Attribution-NonCommercial-ShareAlike 3.0 Unported License.  So as long as you
-are not intending to profit from the translation, no permission to translate
-and publish is needed.  If you want to sell the resulting translated book 
-commercially, please see the Appendix on Copyright and contact me.
+Questo libro è disponibile con una licenza Creative Commons
+ttribution-NonCommercial-ShareAlike 3.0 Unported. Quindi a meno che tu
+non intendi ottenere profitto dalla traduzione, non è necessario avere
+nessuna autorizzazione per tradurlo e pubblicarlo. Se vuoi vendere il
+risultato finale del libro tradotto commercialmente, per cortesia leggi
+l'Appendice sul Copyright e contattami.
 
-Here are some of the translations in-progress:
+Le traduzione in lavorazione sono le seguenti:
 
-* Korean - [Formatted Book](http://do1.dr-chuck.com/py4inf/KO-ko/book.pdf) | [Book Source](https://github.com/statkclee/py4inf-kor) (Lead: Victor KC Lee)
+* Korean - [Libro Formattato](http://do1.dr-chuck.com/py4inf/KO-ko/book.pdf) | [Sorgenti del Libro](https://github.com/statkclee/py4inf-kor) (Lead: Victor KC Lee)
 * Italian - [Google Doc](https://docs.google.com/document/d/1ZyxzXGe2qGgsc-Dbqs-pXvQFPKbpJfLs1cq2gUFkxqw/edit?usp=sharing) (Lead: Mauro Toselli)
-* Spanish - [Formatted Book](http://do1.dr-chuck.com/py4inf/ES-es/) | [Book Source](https://github.com/hedemarrie/py4inf-esp) (Lead: Hedemarrie Dussan)
+* Italian - [GitHub Repository](https://github.com/giodegas/py4inf/tree/ita) (Lead: Giovanni De Gasperis)
+* Spanish - [Libro Formattato](http://do1.dr-chuck.com/py4inf/ES-es/) | [Book Source](https://github.com/hedemarrie/py4inf-esp) (Lead: Hedemarrie Dussan)
 
-Feel free to send me a link (or just edit this page and send me a Pull Request).
+Mandami pure un collegamento (oppure forka ed edita questa pagina e mandami un Pull Request).
 
-You can use any technology you like LaTeX, Google Docs, WikiBook or whatever you choose.
+Puoi usare la tecnologia che più ti aggrada tra LaTeX, Google Docs, WikiBook or altro che preferisci.
 
-If you can figure out LaTeX, the easiest way to translate the book is to fork
-my repo on GitHub and start translating in your own repo.  That way it will be easier
-to catch up with changes I make to the English version of the book.  
+Se conosci e puoi utilizzare LaTeX, la via più semplice per tradurre il
+libro è fare un fork del mio repo su GitHub e iniziare a tradurre nel
+tuo repo personale. In questo modo sarà più semplice rimanere aggiornati
+con i cambiamenti che faccio sulla versione Inglese del libro.
 
-If you start a translation in github, please contact me so I can add it to my automatic 
-build process:
+Se inizi a tradurre in github, per cortesia contattami in modo che io possa aggiungerti 
+al processo automatico di generazione del libro:
 
 * http://do1.dr-chuck.com/py4inf/
 
-This way your latest work will be easily found by students and linked from my web site
-once the translation is under way.
+In questo modo il tuo lavoro aggiornato può essere facilmente trovato dagli studenti dal mio sito
+appena inizia la traduzione.
 
-TO DO
------
+DA FARE
+-------
 
-I need to document and check in the code to run a build server.  The build server
-is another way for a MacBook user without HeVeA to develop.  Edit locally, check 
-the PDF and then check in the changes wait a tick and then the HTML is made in 
-the build server.
+Ho bisogno di documentare e di fare il check in del codice per eseguire
+il server di build. Sarebbe un ottima alternativa per gli utenti MacBook
+che non hanno HeVea per sviluppare. Edita localmente, controllare il PDF
+e poi fai il check in delle modifiche, aspetti un attimo e la versione
+HTML è pronta sul server.
 
-I have no idea how LaTeX works on Windows.  I would be happy to get a PR
-with some documentation.
+Non ho idea coem funzioni LaTeX su Windows. Sarei ben felice di avere
+maggiori info a proposito.
 
 Chuck Severance - 
 Mon Aug 18 22:20:12 EDT 2014
