@@ -1,866 +1,641 @@
 % LaTeX source for ``Python for Informatics: Exploring Information''
 % Copyright (c)  2010-  Charles R. Severance, All Rights Reserved
-
+% 
 \chapter{Variabili , espressioni e istruzioni}
 
-\section{2.1 Valori e tipi}
-\index{valore}
-\index{tipo}
-\index{stringa}
+\section{Valori e tipi} \index{valore} \index{tipo} \index{stringa}
 
-Un \textbf{valore} \`{e} uno degli elementi fondamentali con cui lavorano i programmi, come una lettera o un numero . I valori che abbiamo visto finora sono {\tt 1}, {\tt 2} e \verb"'Ciao, Mondo!'" .
+Un \textbf{valore} \`{e} uno degli elementi fondamentali con cui
+lavorano i programmi, come una lettera o un numero . I valori che
+abbiamo visto finora sono {\tt 1}, {\tt 2} e \verb"'Ciao, Mondo!'" .
 
-Questi valori appartengono a \textbf{tipi }diversi: \emph{2} \`{e} un intero, e \verb"'Ciao, Mondo!'"  \`{e} una \textbf{stringa}, viene chiamata cos\`{i} perch\'{e} contiene, appunto, una {``}stringa'' di lettere. Le stringhe sono identificabili dal fatto che sono racchiuse tra virgolette. 
+Questi valori appartengono a \textbf{tipi }diversi: \emph{2} \`{e} un
+intero, e \verb"'Ciao, Mondo!'"  \`{e} una \textbf{stringa}, viene
+chiamata cos\`{i} perch\'{e} contiene, appunto, una {``}stringa'' di
+lettere. Le stringhe sono identificabili dal fatto che sono racchiuse
+tra virgolette.
 
-L' istruzione {\tt print} funziona anche per gli interi. Usiamo il comando {\tt python} per avviare l'interprete.
+L' istruzione {\tt print} funziona anche per gli interi. Usiamo il
+comando {\tt python} per avviare l'interprete.
 
 \index{virgolette}
 
-\beforeverb
-\begin{verbatim}
-python
+\beforeverb \begin{verbatim} python
 >>> print 4
-4
-\end{verbatim}
-\afterverb
+4 \end{verbatim} \afterverb
 %
-Se non sei sicuro a quale tipo appartenga un valore, lo poi chiedere all'interprete.
+Se non sei sicuro a quale tipo appartenga un valore, lo poi chiedere
+all'interprete.
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> type('Ciao, Mondo!')
 <type 'str'>
 >>> type(17)
-<type 'int'>
-\end{verbatim}
-\afterverb
+<type 'int'> \end{verbatim} \afterverb
 %
-Chiaramente, le stringhe appartengono al tipo {\tt str} e i numeri interi appartengono al tipo {\tt int}. Meno ovvio, i numeri con un punto decimale appartengono a un tipo chiamato {\tt float}. Questi numeri sono rappresentati in un formato chiamato \textbf{virgola mobile ({\em floating point})} .
+Chiaramente, le stringhe appartengono al tipo {\tt str} e i numeri
+interi appartengono al tipo {\tt int}. Meno ovvio, i numeri con un punto
+decimale appartengono a un tipo chiamato {\tt float}. Questi numeri sono
+rappresentati in un formato chiamato \textbf{virgola mobile ({\em
+floating point})} .
 
-\index{tipo}
-\index{tipo stringa}
-\index{tipo!str}
-\index{int tipo}
-\index{tipo!int}
-\index{float tipo}
-\index{tipo!float}
+\index{tipo} \index{tipo stringa} \index{tipo!str} \index{int tipo}
+\index{tipo!int} \index{float tipo} \index{tipo!float}
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> type(3.2)
-<type 'float'>
-\end{verbatim}
-\afterverb
+<type 'float'> \end{verbatim} \afterverb
 %
-
-Che dire di valori come \verb"'17'" e \verb"'3.2'"? Sembrano numeri, ma sono inclusi tra virgolette come le stringhe.
+%
+Che dire di valori come \verb"'17'" e \verb"'3.2'"? Sembrano numeri, ma
+sono inclusi tra virgolette come le stringhe.
 
 \index{virgolette}
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> type('17')
 <type 'str'>
 >>> type('3.2')
-<type 'str'>
-\end{verbatim}
-\afterverb
+<type 'str'> \end{verbatim} \afterverb
 %
 Sono stringhe a tutti gli effetti.
 
 
-Quando si digita un grande numero intero, si potrebbe essere tentati di utilizzare le virgole tra gruppi di tre cifre, come ad esempio in {\tt 1,000,000}. Questo non \`{e} un numero intero valido in Python , ma \`{e} pur sempre un valore:
+Quando si digita un grande numero intero, si potrebbe essere tentati di
+utilizzare le virgole tra gruppi di tre cifre, come ad esempio in {\tt
+1,000,000}. Questo non \`{e} un numero intero valido in Python , ma
+\`{e} pur sempre un valore:
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> print 1,000,000
-1 0 0
-\end{verbatim}
-\afterverb
+1 0 0 \end{verbatim} \afterverb
 %
-Beh, questo non \`{e} per nulla quello che ci aspettavamo! Python interpreta {\tt
-  1,000,000} come una sequenza di numeri interi separata da virgole, e viene stampata con spazi tra di essi.
+Beh, questo non \`{e} per nulla quello che ci aspettavamo! Python
+interpreta {\tt 1,000,000} come una sequenza di numeri interi separata
+da virgole, e viene stampata con spazi tra di essi.
 
-\index{errore semantico}
-\index{errore!semantico}
-\index{messaggio di errore}
+\index{errore semantico} \index{errore!semantico} \index{messaggio di
+errore}
 
-Questo \`{e} il primo esempio in cui abbiamo visto un errore semantico : il codice viene eseguito senza produrre un messaggio di errore, ma non fa la {``}cosa giusta''.
+Questo \`{e} il primo esempio in cui abbiamo visto un errore semantico :
+il codice viene eseguito senza produrre un messaggio di errore, ma non
+fa la {``}cosa giusta''.
 
-\section{Variabili}
-\index{variable}
-\index{istruzione di assegnamento}
+\section{Variabili} \index{variable} \index{istruzione di assegnamento}
 \index{istruzione!assegnamento}
 
-Una delle caratteristiche pi\`{u} importanti di un linguaggio di programmazione \`{e} la capacit\`{a} di manipolare \textbf{variabili}. Una variabile \`{e} un nome che si riferisce a un valore. 
+Una delle caratteristiche pi\`{u} importanti di un linguaggio di
+programmazione \`{e} la capacit\`{a} di manipolare \textbf{variabili}.
+Una variabile \`{e} un nome che si riferisce a un valore.
 
-Un' istruzione di \textbf{assegnamento} crea nuove variabili e assegna loro dei valori:
+Un' istruzione di \textbf{assegnamento} crea nuove variabili e assegna
+loro dei valori:
 
-\beforeverb
-\begin{verbatim}
->>> message = 'Ed ora per qualcosa di completamente nuovo'
->>> n = 17
->>> pi = 3.1415926535897931
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim}
+>>> message = 'Ed ora per qualcosa di completamente nuovo' n = 17 pi =
+>>> 3.1415926535897931
+\end{verbatim} \afterverb
 %
+%
+Questo esempio esegue tre assegnamenti. Il primo assegna una stringa a
+una nuova variabile di nome messaggio; il secondo assegna il numero
+intero 17 a n; la terza assegna il valore (approssimativo) di $\pi$ a
+Pi.
 
-Questo esempio esegue tre assegnamenti. Il primo assegna una stringa a una nuova variabile di nome messaggio; il secondo assegna il numero intero 17 a n; la terza assegna il valore (approssimativo) di $\pi$ a Pi.
 
+Per visualizzare il valore di una variabile, \`{e} possibile utilizzare
+l'istruzione print:
 
-Per visualizzare il valore di una variabile, \`{e} possibile utilizzare l'istruzione print:
-
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> print n
 17
 >>> print pi
-3.14159265359
-\end{verbatim}
-\afterverb
+3.14159265359 \end{verbatim} \afterverb
 %
-Il tipo di una variabile \`{e} il tipo del valore alla quale si riferisce.
+Il tipo di una variabile \`{e} il tipo del valore alla quale si
+riferisce.
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> type(message)
 <type 'str'>
 >>> type(n)
 <type 'int'>
 >>> type(pi)
-<type 'float'>
-\end{verbatim}
-\afterverb
+<type 'float'> \end{verbatim} \afterverb
 %
-
-\section{Nomi di variabili e parole chiavi}
-\index{keyword}
+%
+\section{Nomi di variabili e parole chiavi} \index{keyword}
 \index{parola chiave}
 
-I programmatori generalmente scelgono nomi significativi per le \textbf{variabili}, che documentano per quale scopo viene usata la variabile.
+I programmatori generalmente scelgono nomi significativi per le
+\textbf{variabili}, che documentano per quale scopo viene usata la
+variabile.
 
 
-I nomi delle variabili possono essere arbitrariamente lunghi. Possono contenere sia lettere che numeri , ma devono iniziare con una lettera. E' corretto usare le lettere maiuscole, ma \`{e} una buona idea per cominciare nomi di variabili con una lettera minuscola (vedrete perch\'{e} pi\`{u} avanti).
+I nomi delle variabili possono essere arbitrariamente lunghi. Possono
+contenere sia lettere che numeri , ma devono iniziare con una lettera.
+E' corretto usare le lettere maiuscole, ma \`{e} una buona idea per
+cominciare nomi di variabili con una lettera minuscola (vedrete
+perch\'{e} pi\`{u} avanti).
 
 
-Il carattere di sottolineatura ({\em underscore}) (\verb"_") pu\`{o} apparire in un nome. E' spesso usato nei nomi con pi\`{u} parole, ad esempio \verb"my_name" o \verb"airspeed_of_unladen_swallow" .
-I nomi delle variabili possono iniziare con il carattere {\em underscore}, ma generalmente cerchiamo di evitarlo a meno che non stiamo scrivendo una libreria di codice che debba essere usata da altri.
+Il carattere di sottolineatura ({\em underscore}) (\verb"_") pu\`{o}
+apparire in un nome. E' spesso usato nei nomi con pi\`{u} parole, ad
+esempio \verb"my_name" o \verb"airspeed_of_unladen_swallow" . I nomi
+delle variabili possono iniziare con il carattere {\em underscore}, ma
+generalmente cerchiamo di evitarlo a meno che non stiamo scrivendo una
+libreria di codice che debba essere usata da altri.
 
-\index{carattere underscore}
-\index{carattere sottolineatura}
+\index{carattere underscore} \index{carattere sottolineatura}
 
-Se si d\`{a} una variabile un nome non corretto, si ottiene un errore di sintassi:
+Se si d\`{a} una variabile un nome non corretto, si ottiene un errore di
+sintassi:
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> 76trombones = 'big parade'
 SyntaxError: invalid syntax
 >>> more@ = 1000000
 SyntaxError: invalid syntax
 >>> class = 'Advanced Theoretical Zymurgy'
-SyntaxError: invalid syntax
-\end{verbatim}
-\afterverb
+SyntaxError: invalid syntax \end{verbatim} \afterverb
 %
-{\tt 76trombones}  \`{e} sbagliato perch\'{e} inizia con un numero,
-{\tt more@} \`{e} sbagliato perch\'{e} contiene un carattere non valido,  {\tt
-@}.  @. Ma cosa c'\`{e} di sbagliato con  {\tt class}?
+{\tt 76trombones}  \`{e} sbagliato perch\'{e} inizia con un numero, {\tt
+more@} \`{e} sbagliato perch\'{e} contiene un carattere non valido, 
+{\tt @}.  @. Ma cosa c'\`{e} di sbagliato con  {\tt class}?
 
-In realt\`{a}{\tt class} \`{e} una delle \textbf{parole riservate} di Python. 
-L'interprete utilizza le parole chiave per riconoscere la struttura del programma, pertanto non possono essere usate come nomi di variabili.
+In realt\`{a}{\tt class} \`{e} una delle \textbf{parole riservate} di
+Python. L'interprete utilizza le parole chiave per riconoscere la
+struttura del programma, pertanto non possono essere usate come nomi di
+variabili.
 
-\index{keyword}
-\index{parola chiave}
+\index{keyword} \index{parola chiave}
 
-Python riserva \textbf{31} \textbf{keywords}\footnote{	 In Python 3.0, {\tt exec} non \`{e} pi\`{u} una  keyword, ma  {\tt nonlocal} s\`{i}.} \textbf{ }per il suo utilizzo :
+Python riserva \textbf{31} \textbf{keywords}\footnote{	 In Python
+3.0, {\tt exec} non \`{e} pi\`{u} una  keyword, ma  {\tt nonlocal}
+s\`{i}.} \textbf{ }per il suo utilizzo :
 
-\beforeverb
-\begin{verbatim}
-and       del       from      not       while    
-as        elif      global    or        with     
-assert    else      if        pass      yield    
-break     except    import    print              
-class     exec      in        raise              
-continue  finally   is        return             
-def       for       lambda    try
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim} 
+and       del       from	 	not	 	while 	as        
+elif      global    or	 	 	with 	 assert 	else     
+if        pass      yield 	 break	except 	import   	print		class    
+exec      in        raise  	continue  	finally 	is	return	def      
+for       lambda    try \end{verbatim} \afterverb
 %
-Sarebbe utile tenere questa lista a portata di mano. Se l'interprete si lamenta di uno dei vostri nomi di variabile non sapere spiegarvi perch\'{e}, probabilmente \`{e} presente in questa lista.
+Sarebbe utile tenere questa lista a portata di mano. Se l'interprete si
+lamenta di uno dei vostri nomi di variabile non sapere spiegarvi
+perch\'{e}, probabilmente \`{e} presente in questa lista.
 
-%% TRADURRE ***
 \section{Istruzioni}
 
-A {\bf statement} is a unit of code that the Python interpreter can
-execute.  We have seen two kinds of statements: print
-and assignment.
+Un'\textbf{istruzione }\`{e} una unit\`{a} di codice che viene eseguita
+dall'interprete Python. Abbiamo visto due tipi di istruzioni: stampa e
+assegnamento.
 
-\index{statement}
-\index{interactive mode}
-\index{script mode}
+\index{statement} \index{istruzione} \index{modalit\`{a} interattiva}
+\index{modalit\`{a} script}
 
-When you type a statement in interactive mode, the interpreter
-executes it and displays the result, if there is one.
+Quando si digita un'istruzione in modalit\`{a} interattiva, l'interprete
+esegue e visualizza il risultato, se ce n'\`{e} uno.
 
-A script usually contains a sequence of statements.  If there
-is more than one statement, the results appear one at a time
-as the statements execute.
+Uno script di solito contiene una sequenza di istruzioni. Se vi \`{e}
+pi\`{u} di una istruzione, i risultati vengono visualizzati uno alla
+volta, relativamente alle istruzioni eseguite.
 
-For example, the script
 
-\beforeverb
-\begin{verbatim}
-print 1
-x = 2
-print x
-\end{verbatim}
+Per esempio, lo script
+
+\beforeverb \begin{verbatim} print 1 x = 2 print x \end{verbatim}
 \afterverb
 %
-produces the output
+produce l'output
 
-\beforeverb
-\begin{verbatim}
-1
-2
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim} 1 2 \end{verbatim} \afterverb
 %
-The assignment statement produces no output.
+L'istruzione di assegnamento non produce alcun output.
 
 
-\section{Operators and operands}
-\index{operator, arithmetic}
-\index{arithmetic operator}
-\index{operand}
-\index{expression}
+\section{Operatori e operandi} \index{operatore, aritmetico}
+\index{operatore aritmetico} \index{operando} \index{espressione}
 
-{\bf Operators} are special symbols that represent computations like
-addition and multiplication.  The values the operator is applied to
-are called {\bf operands}.
+Gli operatori sono simboli speciali che rappresentano i calcoli come
+addizione e moltiplicazioni. I valori ai quali l'operatore viene
+applicato sono chiamati operandi.
 
-The operators {\tt +}, {\tt -}, {\tt *}, {\tt /}, and {\tt **}
-perform addition, subtraction, multiplication, division, and
-exponentiation, as in the following examples:
 
-\beforeverb
-\begin{verbatim}
-20+32   hour-1   hour*60+minute   minute/60   5**2   (5+9)*(15-7)
-\end{verbatim}
-\afterverb
+Gli operatori {\tt +}, {\tt -}, {\tt *}, {\tt /} e {\tt **} eseguono
+addizioni, sottrazioni, moltiplicazioni, divisioni e elevamento a
+potenza, come negli seguenti esempi:
+
+
+\beforeverb \begin{verbatim} 20+32   ore-1   ore*60+minuti   minuti/60  
+5**2   (5+9)*(15-7) \end{verbatim} \afterverb
 %
-The division operator might not do what you expect:
+L'operatore di divisione potrebbe non fare quello che vi aspettate:
 
-\beforeverb
-\begin{verbatim}
->>> minute = 59
->>> minute/60
-0
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim}
+>>> minuti = 59 minuti/60
+0 \end{verbatim} \afterverb
 %
-The value of {\tt minute} is 59, and in conventional arithmetic 59
-divided by 60 is 0.98333, not 0.  The reason for the discrepancy is
-that Python is performing {\bf floor division}\footnote{In Python 3.0,
-the result of this division is a {\tt float}.  
-In Python 3.0, the new operator
-{\tt //} performs integer division.}.
+Il valore dei minuti  {\tt minuti} \`{e}  59, e in aritmetica
+convenzionale,  59 diviso per 60 \`{e} 0,98333, non 0. La ragione della
+discrepanza \`{e} che Python sta eseguendo una \textbf{divisione tra
+interi}\footnote{	 In Python 3.0, il risultato di questa divisione
+\`{e} a virgola mobile ({\tt float}). In Python 3.0, il nuovo operatore
+{\tt //} esegue la divisione tra interi.} .
 
-\index{Python 3.0}
-\index{floor division}
-\index{floating-point division}
-\index{division!floor}
-\index{division!floating-point}
+\index{Python 3.0} \index{divisione intera} \index{divisione razionale}
+\index{divisione!intera} \index{divisione!razionale}
 
-When both of the operands are integers, the result is also an
-integer; floor division chops off the fractional
-part, so in this example it truncates the answer to zero.
+Quando entrambi gli operandi sono interi, il risultato \`{e} un numero
+intero; la divisione tra interi taglia la parte frazionaria, in questo
+esempio arrotonda a zero.
 
-If either of the operands is a floating-point number, Python performs
-floating-point division, and the result is a {\tt float}:
 
-\beforeverb
-\begin{verbatim}
+Se uno degli operandi \`{e} un numero in virgola mobile, Python esegue
+la divisione in virgola mobile, e il risultato \`{e} un \emph{float:}
+\footnote{In tutti i Python il separatore decimale \`{e} il punto e non
+la virgola }
+
+
+\beforeverb \begin{verbatim}
 >>> minute/60.0
-0.98333333333333328
-\end{verbatim}
-\afterverb
+0.98333333333333328 \end{verbatim} \afterverb
 
 
-\section{Expressions}
+\section{Espressioni}
 
-An {\bf expression} is a combination of values, variables, and operators.
-A value all by itself is considered an expression, and so is
-a variable, so the following are all legal expressions
-(assuming that the variable {\tt x} has been assigned a value):
+Un'\textbf{espressione }\`{e} una combinazione di valori, variabili e
+operatori. Un valore da solo \`{e} considerato un'espressione, e
+cos\`{i} anche per una variabile, quindi le seguenti sono tutte
+espressioni valide (assumendo che alla variabile {\tt x} sia stato
+assegnato un valore):
 
-\index{expression}
-\index{evaluate}
+\index{espressione} \index{valutazione}
 
-\beforeverb
-\begin{verbatim}
-17
-x
-x + 17
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim} 17 x x + 17 \end{verbatim} \afterverb
 %
-If you type an expression in interactive mode, the interpreter
-{\bf evaluates} it and displays the result:
+Se si digita un'espressione in modalit\`{a} interattiva, l'interprete la
+{\bf valuta} e visualizza il risultato:
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> 1 + 1
-2
-\end{verbatim}
-\afterverb
+2 \end{verbatim} \afterverb
 %
-But in a script, an expression all by itself doesn't
-do anything!  This is a common
-source of confusion for beginners.
+Ma in uno script, un'espressione da sola non fa nulla! Questo \`{e} una
+fonte di confusione comune tra i principianti.
 
-\begin{ex}
-Type the following statements in the Python interpreter to see
-what they do:
+\begin{ex} Digita le seguenti istruzioni nell l'interprete Python per
+vedere quello che fanno:
 
-\beforeverb
-\begin{verbatim}
-5
-x = 5
-x + 1
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim} 5 x = 5 x + 1 \end{verbatim} \afterverb
 %
 \end{ex}
 
 
-\section{Order of operations}
-\index{order of operations}
-\index{rules of precedence}
-\index{PEMDAS}
+\section{Ordine delle operazioni} \index{ordine delle operazioni}
+\index{regole di precedenza} \index{PEMDAS}
 
-When more than one operator appears in an expression, the order of
-evaluation depends on the {\bf rules of precedence}.  For
-mathematical operators, Python follows mathematical convention.
-The acronym {\bf PEMDAS} is a useful way to
-remember the rules:
+Quando pi\`{u} di un operatore compare in un'espressione , l'ordine di
+valutazione dipende dalle \textbf{regole di priorit\`{a}}. Per gli
+operatori matematici , Python segue la convenzione matematica.
+L'acronimo \textbf{PEMDAS }\`{e} un modo utile per ricordare le regole :
 
-\index{parentheses!overriding precedence}
+\index{parentesi!forzare la precedenza}
 
 \begin{itemize}
 
-\item {\bf P}arentheses have the highest precedence and can be used 
-to force an expression to evaluate in the order you want. Since
-expressions in parentheses are evaluated first, {\tt 2 * (3-1)} is 4,
-and {\tt (1+1)**(5-2)} is 8. You can also use parentheses to make an
-expression easier to read, as in {\tt (minute * 100) / 60}, even
-if it doesn't change the result.
+\item Le {\bf P}arentesi hanno la priorit\`{a} massima e possono essere
+utilizzate per forzare l'ordine di esecuzione che desideriamo.
+Poich\'{e} le espressioni tra parentesi vengono valutate per prime ,
+{\tt 2 * (3-1)} is 4, e {\tt (1+1)**(5-2)} is 8. Potete anche usare le parentesi per rendere l'espressione pi\`{u} facile da leggere , come in {\tt (minuti *
+100) / 60}, anche se non cambia il risultato.
 
-\item {\bf E}xponentiation has the next highest precedence, so
-{\tt 2**1+1} is 3, not 4, and {\tt 3*1**3} is 3, not 27.
+\item {\bf E}levamento a potenza ha la priorit\`{a} successiva cos\`{i} {\tt
+2**1+1} \`{e} 3, non 4, e {\tt 3*1**3} \`{e} 3, non 27.
 
-\item {\bf M}ultiplication and {\bf D}ivision have the same precedence,
-which is higher than {\bf A}ddition and {\bf S}ubtraction, which also
-have the same precedence.  So {\tt 2*3-1} is 5, not 4, and
-{\tt 6+4/2} is 8, not 5.
+\item {\bf M}oltiplicazione e  {\bf D}ivisione hanno la stessa priorit\`{a}, ed \`{e} pi\`{u} alta di {\bf A}edizione and {\bf S}ottrazione, che ha anche la stessa priorit\`{a}. 
+Quindi {\tt 2*3-1} is 5, not 4, and {\tt 6+4/2}
+\`{e} 8, non 5.
 
-\item Operators with the same precedence are evaluated from left to 
-right.  So the expression {\tt 5-3-1} is 1, not 3, because the
-{\tt 5-3} happens first and then {\tt 1} is subtracted from {\tt 2}.
+\item Gli operatori con la stessa priorit\`{a} sono valutati da sinistra a destra . Cos\`{i} nell'espressione {\tt 5-3-1} \`{e} 1, non 3, perch\'e {\tt 5-3}
+viene eseguito prima e poi viene sottratto  {\tt 1} da {\tt 2}.
 
 \end{itemize}
 
-When in doubt, always put parentheses in your expressions to make sure
-the computations are performed in the order you intend.
+Nel dubbio utilizzate sempre le parentesi nelle espressioni per assicurarvi esecuzione venga eseguita nell'ordine voluto.
 
-\section{Modulus operator}
+\section{Operatore modulo}
 
-\index{modulus operator}
-\index{operator!modulus}
+\index{operatore modulo} \index{operatore!modulo}
 
-The {\bf modulus operator} works on integers and yields the remainder
-when the first operand is divided by the second.  In Python, the
-modulus operator is a percent sign (\verb"%").  The syntax is the same
-as for other operators:
+L'operatore \textbf{modulo }opera sugli interi e restituisce il resto quando il primo operando viene diviso per il secondo. In Python, l'operatore modulo \`{e} un segno di percentuale (\%). La sintassi \`{e} la stessa che per altri operatori:
 
-\beforeverb
-\begin{verbatim}
->>> quotient = 7 / 3
->>> print quotient
+\beforeverb \begin{verbatim}
+>>> quoziente = 7 / 3 
+print quoziente
 2
->>> remainder = 7 % 3
->>> print remainder
-1
-\end{verbatim}
-\afterverb
+>>> resto = 7 % 3 
+print resto
+1 \end{verbatim} \afterverb
 %
-So 7 divided by 3 is 2 with 1 left over.
+Quindi 7 diviso 3 \`{e} 2 con resto di 1.
 
-The modulus operator turns out to be surprisingly useful.  For
-example, you can check whether one number is divisible by another---if
-{\tt x \% y} is zero, then {\tt x} is divisible by {\tt y}.
+L'operatore modulo risulta essere sorprendentemente utile. Ad esempio , \`{e} possibile verificare se un numero \`{e} divisibile per un altro : se {\tt x \% y} \`{e} zero , allora x \`{e} divisibile per y.
 
-\index{divisibility}
+\index{divisibilit\`{a}}
 
-You can also extract the right-most digit
-or digits from a number.  For example, {\tt x \% 10} yields the
-right-most digit of {\tt x} (in base 10).  Similarly, {\tt x \% 100}
-yields the last two digits.
+Inoltre, \`{e} possibile estrarre la cifra o le cifre pi\`{u} a destra di un numero. Ad esempio, {\tt x \% 10} restituisce la cifra pi\`{u} a destra di x ( in base 10 ). Allo stesso modo {\tt x \% 100} restituisce le ultime due cifre.
 
 
+\section{Operazioni sulle stringhe} 
+\index{stringhe!operazioni}
+\index{operazioni!stringhe}
 
-\section{String operations}
-\index{string!operation}
-\index{operator!string}
+L'operatore + funziona anche con le stringhe, ma non in senso matematico. Esegue invece la \textbf{concatenazione}, che significa unire le stringhe collegandole consecutivamente. 
 
-The {\tt +} operator works with strings, but it
-is not addition in the mathematical sense. Instead it performs
-{\bf concatenation}, which means joining the strings by
-linking them end to end.  For example:
+Per esempio :
 
-\index{concatenation}
+\index{concatenazione}
 
-\beforeverb
-\begin{verbatim}
->>> first = 10
->>> second = 15
->>> print first+second
+\beforeverb \begin{verbatim}
+>>> primo = 10 
+secondo = 15 
+print primo+secondo
 25
->>> first = '100'
->>> second = '150'
->>> print first + second
-100150
-\end{verbatim}
-\afterverb
+>>> primo = '100' 
+secondo = '150' 
+print primo + secondo
+100150 \end{verbatim} \afterverb
 %
-The output of this program is {\tt 100150}.
+Il risultato di questo programma \`{e} {\tt 100150}.
 
-\section{Asking the user for input}
-\index{keyboard input}
+\section{Richiedere un input all'utente} 
+\index{input da tastiera}
 
-Sometimes we would like to take the value for a variable from the user
-via their keyboard.
-Python provides a built-in function called \verb"raw_input" that gets
-input from the keyboard\footnote{In Python 3.0, this function is named
-  {\tt input}.}.  When this function is called, the program stops and
-waits for the user to type something.  When the user presses {\sf
-  Return} or {\sf Enter}, the program resumes and \verb"raw_input"
-returns what the user typed as a string.
+A volte vorremmo richiedere all'utente di assegnare un valore ad una variabile tramite tastiera. Python fornisce una funzione built-in chiamata
+\verb"raw_input" che consente l'immissione di valori tramite tastiera.
+\footnote{In Python
+3.0, questa funzione \`{e}  {\tt input}.}.  Quando questa funzione viene eseguita, il programma si ferma e attende che l'utente digiti qualcosa. Quando l'utente preme  {\sf Return} oppure {\sf Enter}, il programma riprende e \verb"raw_input" restituisce ci\`{o} che l'utente ha digitato, cio\`{e} una stringa.
 
-\index{Python 3.0}
-\index{raw\_input function}
-\index{function!raw\_input}
+\index{Python 3.0} \index{funzione raw\_input }
+\index{funzione!raw\_input}
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> input = raw_input()
-Some silly stuff
+Alcune cose scritte
 >>> print input
-Some silly stuff
-\end{verbatim}
-\afterverb
+Alcune cose scritte \end{verbatim} \afterverb
 %
-Before getting input from the user, it is a good idea to print a
-prompt telling the user what to input.  You can pass a string
-to \verb"raw_input" to be displayed to the user before pausing
-for input:
+Prima di ottenere un input da parte dell'utente, \`{e} una buona idea visualizzare un prompt che dica all'utente cosa digitare. 
+\`{E} possibile passare a \verb"raw_input"  un testo da visualizzare all'utente:
 
 \index{prompt}
 
-\beforeverb
-\begin{verbatim}
->>> name = raw_input('What is your name?\n')
-What is your name?
-Chuck
->>> print name
-Chuck
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim}
+>>> nome = raw_input('Come ti chiami?\n')
+Come ti chiami? Chuck
+>>> print nome
+Chuck \end{verbatim} \afterverb
 %
-The sequence \verb"\n" at the end of the prompt represents a {\bf newline},
-which is a special character that causes a line break.
-That's why the user's input appears below the prompt.
+La sequenza \verb"\n" alla fine del prompt rappresenta un \textbf{ritorno a capo}: \`{e} un carattere speciale che provoca un'interruzione di riga. Ecco perch\'{e} l'input dell'utente appare sotto il prompt.
 
 \index{newline}
+\index{ritorno a capo}
 
-If you expect the user to type an integer, you can try to convert
-the return value to {\tt int} using the {\tt int()} function:
+Se vi aspettate che utente digiti un numero intero, si pu\`{o} provare a convertire il valore restituito in \emph{intero } {\tt int} utilizzando la funzione  {\tt int()} :
 
-\beforeverb
-\begin{verbatim}
->>> prompt = 'What...is the airspeed velocity of an unladen swallow?\n'
->>> speed = raw_input(prompt)
-What...is the airspeed velocity of an unladen swallow?
+\beforeverb \begin{verbatim}
+>>> prompt = "Quale... e' la velocita' di una rondine in aria?\n"
+>>> velocita = raw_input(prompt)
+Quale... e' la velocita' di una rondine in aria? 17
+>>> int(velocita)
 17
->>> int(speed)
-17
->>> int(speed) + 5
-22
-\end{verbatim}
+>>> int(velocita) + 5
+22 \end{verbatim} \afterverb 
+\footnote{si consiglia di non usare le accentate nel sorgente di un programma Python 2.x, oppure inserire le istruzioni di codifica utf-8 come prima riga}
+%
+But if the user types something other than a string of digits, you get
+an error:
+
+\beforeverb \begin{verbatim}
+>>> velocita = raw_input(prompt)
+Quale... e' la velocita' di una rondine in aria? Che intendi,
+una rondine Africana oppure Europea?
+>>> int(velocita)
+ValueError: invalid literal for int() \end{verbatim} \afterverb
+%
+Vedremo come gestire questo tipo di errore pi\`{u} avanti.
+
+\index{ValueError} \index{eccezione!ValueError}
+
+
+\section{Commenti} \index{commenti}
+
+Mano a mano che i programmi diventano sempre pi\`{u} lunghi e complessi risultano pi\`{u} difficile da leggere. I linguaggi formali sono densi ed \`{e} spesso difficile guardare un pezzo di codice e capire cosa sta facendo, o perch\'{e}.? 
+
+Per questo motivo, \`{e} una buona idea aggiungere note ai tuoi programmi per spiegare, in linguaggio naturale, quello che sta facendo il programma. Queste note sono chiamate \textbf{commenti}, e iniziano con il simbolo \verb"#" :
+
+\beforeverb \begin{verbatim}
+# Calcolare la percentuale di ore trascorse
+percentuale = ( minuti * 100 ) / 60 \end{verbatim} \afterverb
+%
+In questo caso, il commento su una riga appare da solo. \`{E} anche possibile inserire commenti alla fine di una riga:
+
+\beforeverb \begin{verbatim}percentuale = ( minuti * 100 ) / 60      #
+percentuale di un'ora \end{verbatim} \afterverb
+%
+Tutto il testo da {\tt \#} alla fine della riga viene ignorato, non ha alcun effetto sul programma.
+
+
+I commenti sono pi\`{u} utili quando si documentano caratteristiche non evidenti del codice. E' ragionevole supporre che il lettore possa capire \emph{cosa} fa il codice ma \`{e} molto pi\`{u} utile a spiegare il \emph{perch\'{e}}.
+
+
+Il commento a questo codice \`{e} inutile \`{e} superfluo:
+
+\beforeverb \begin{verbatim} v = 5     # assegna 5 a v \end{verbatim}
 \afterverb
 %
-But if the user types something other than a string of digits,
-you get an error:
+Questo commento, invece, contiene informazioni utili che non sono palesi nel codice:
 
-\beforeverb
-\begin{verbatim}
->>> speed = raw_input(prompt)
-What...is the airspeed velocity of an unladen swallow?
-What do you mean, an African or a European swallow?
->>> int(speed)
-ValueError: invalid literal for int()
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim} v = 5     # velocita' in metri/secondo.
+\end{verbatim} \afterverb
 %
-We will see how to handle this kind of error later.
+Attribuire buone nomi a delle variabili pu\`{o} ridurre la necessit\`{a} di commenti, ma nomi lunghi possono rendere le espressioni complesse difficili da leggere: occorre quindi trovare un buon compromesso.
 
-\index{ValueError}
-\index{exception!ValueError}
+\section{La scelta di nomi mnemonici per le variabili}
 
+\index{mnemonico}
 
-\section{Comments}
-\index{comment}
+Se si seguono alcune semplici regole per nominare le variabili e si evitano le parole riservate, si hanno moltissime scelte per dare un nome alle variabili . All'inizio questa scelta pu\`{o} essere motivo di confusione sia quando si legge un programma che quando si scrivono i propri programmi. Ad esempio, i seguenti tre programmi sono identici in termini di ci\`{o} che compiono, ma molto diverso quando li si legge per capire cosa fanno.
 
-As programs get bigger and more complicated, they get more difficult
-to read.  Formal languages are dense, and it is often difficult to
-look at a piece of code and figure out what it is doing, or why.
-
-For this reason, it is a good idea to add notes to your programs to explain
-in natural language what the program is doing.  These notes are called
-{\bf comments}, and in Python they start with the \verb"#" symbol:
-
-\beforeverb
-\begin{verbatim}
-# compute the percentage of the hour that has elapsed
-percentage = (minute * 100) / 60
-\end{verbatim}
-\afterverb
-%
-In this case, the comment appears on a line by itself.  You can also put
-comments at the end of a line:
-
-\beforeverb
-\begin{verbatim}
-percentage = (minute * 100) / 60     # percentage of an hour
-\end{verbatim}
-\afterverb
-%
-Everything from the {\tt \#} to the end of the line is ignored---it
-has no effect on the program.
-
-Comments are most useful when they document non-obvious features of
-the code.  It is reasonable to assume that the reader can figure out
-\emph{what} the code does; it is much more useful to explain \emph{why}.
-
-This comment is redundant with the code and useless:
-
-\beforeverb
-\begin{verbatim}
-v = 5     # assign 5 to v
-\end{verbatim}
-\afterverb
-%
-This comment contains useful information that is not in the code:
-
-\beforeverb
-\begin{verbatim}
-v = 5     # velocity in meters/second. 
-\end{verbatim}
-\afterverb
-%
-Good variable names can reduce the need for comments, but
-long names can make complex expressions hard to read, so there is
-a trade-off.
-
-\section{Choosing mnemonic variable names}
-
-\index{mnemonic}
-
-As long as you follow the simple rules of variable naming, and avoid
-reserved words, you have a lot of choice when you name your variables.
-In the beginning, this choice can be confusing both when you read a 
-program and when you write your own programs.  For example, the
-following three programs are identical in terms of what they accomplish,
-but very different when you read them and try to understand them.
-
-\beforeverb
-\begin{verbatim}
-a = 35.0
-b = 12.50
-c = a * b
+\beforeverb \begin{verbatim} 
+a = 35.0 
+b = 12.50 
+c = a * b 
 print c
+ore = 35.0 
+tasso = 12.50 
+paga = ore * tasso 
+print paga
 
-hours = 35.0
-rate = 12.50
-pay = hours * rate
-print pay
-
-x1q3z9ahd = 35.0
-x1q3z9afd = 12.50
+x1q3z9ahd = 35.0 
+x1q3z9afd = 12.50 
 x1q3p9afd = x1q3z9ahd * x1q3z9afd
-print x1q3p9afd
-\end{verbatim}
-\afterverb
+print x1q3p9afd \end{verbatim} \afterverb
 %
-The Python interpreter sees all three of these programs as \emph{exactly the 
-same} but humans see and understand these programs quite differently.  
-Humans will most quickly understand the {\bf intent} 
-of the second program because the 
-programmer has chosen variable names that reflect their intent
-regarding what data will be stored in each variable.
+L'interprete Python vede tutti e tre questi programmi \emph{esattamente} allo stesso modo, ma gli esseri umani li vedono e capiscono in modo diverso. Un essere umano capir\`{a} pi\`{u} rapidamente l'\textbf{intento} del primo programma perch\'{e} il programmatore ha scelto nomi delle variabili che riflettono l'intenzione del programmatore circa i dati che verranno memorizzati in ciascuna variabile.
 
-We call these wisely chosen variable names ``mnemonic variable names''.  The
-word \emph{mnemonic}\footnote{See 
-\url{http://en.wikipedia.org/wiki/Mnemonic}
-for an extended description of the word ``mnemonic''.} 
-means ``memory aid''.
-We choose mnemonic variable names to help us remember why we created the variable
-in the first place.
+La parola \emph{mnemonico}\footnote{	 vedi \url{http://en.wikipedia.org/wiki/Mnemonic} per ulteriore approfondimento} significa {``}in aiuto alla memoria''. In primo luogo abbiamo scelto nomi mnemonici per le variabili allo scopo di aiutarci a ricordare il motivo per cui abbiamo creato la variabile stessa.
 
-While this all sounds great, and it is a very good idea to use mnemonic variable
-names, mnemonic variable names can get in the way of a beginning programmer's 
-ability to parse and understand code.  This is because beginning programmers 
-have not yet memorized the reserved words (there are only 31 of them) and sometimes
-variables with names that are too descriptive start to look like 
-part of the language and not just well-chosen variable names.
 
-Take a quick look at the following Python sample code which loops through some data. 
-We will cover loops soon, but for now try to just puzzle through what this means:
+Questo \`{e} ottimo, ed \`{e} buona pratica utilizzare nomi di variabile mnemonici, tali nomi possono dare un grande aiuto al programmatore principiante che inizia ad analizzare e capire il codice. Questo perch\'{e} i programmatori al loro inizio non hanno ancora imparato a memoria le parole riservate (sono solo 31) ma, talvolta, le variabili con nomi molto descrittivi possono apparire come parte del linguaggio e non nomi ben scelti.
 
-\beforeverb
-\begin{verbatim}
-for word in words:
-    print word
-\end{verbatim}
-\afterverb
+
+Date un rapido sguardo al codice Python seguente che cicla su alcuni dati. Ci occuperemo presto di cicli, ma per ora cerca solo di decifrare ci\`{o} che significa:
+
+\beforeverb \begin{verbatim} for parola in parole: print parola
+\end{verbatim} \afterverb
 %
-What is happening here?  Which of the tokens (for, word, in, etc.) are reserved words
-and which are just variable names?  Does Python understand at a fundamental level 
-the notion of words?  Beginning programmers have 
-trouble separating what parts of the
-code \emph{must} be the same as this example and what parts of the code are simply
-choices made by the programmer.
+Che succede? Quali dei termini {\tt for, parola, in, print} sono parole riservate e quali sono i nomi delle variabili? Come fa Python a capire a livello fondamentale il concetto di {``}parole''? I programmatori principianti hanno difficolt\`{a} a separare quali parti del codice devono essere sempre le stesse, come in questo esempio, e quali altre parti del codice sono semplicemente scelte fatte dal programmatore.
 
-The following code is equivalent to the above code:
 
-\beforeverb
-\begin{verbatim}
-for slice in pizza:
-    print slice
-\end{verbatim}
-\afterverb
+Il codice seguente \`{e} equivalente al codice di cui sopra:
+
+\beforeverb \begin{verbatim} for fetta in pizza: print fetta
+\end{verbatim} \afterverb
 %
-It is easier for the beginning programmer to look at this code and know which 
-parts are reserved words defined by Python and which parts are simply variable
-names chosen by the programmer.  It is pretty clear that Python has no fundamental
-understanding of pizza and slices and the fact that a pizza consists of a set
-of one or more slices.
+E' pi\`{u} facile per il programmatore guardare questo codice e individuare quali parti sono parole riservate definite da Python e quali parti sono semplicemente nomi di variabili. \`{E} piuttosto evidente che Python non ha una comprensione fondamentale di pizza e fetta o del fatto che una pizza consiste di un insieme di una o pi\`{u} fette.
 
-But if our program is truly about reading data and looking for words in the data,
-{\tt pizza} and {\tt slice} are very un-mnemonic variable names.  Choosing them 
-as variable names distracts from the meaning of the program.
 
-After a pretty short period of time, you will know the most common reserved words
-and you will start to see the reserved words jumping out at you:
+Ma se il nostro programma riguarda veramente la lettura di dati e la ricerca di parole nei dati, \emph{pizza }e \emph{fetta }sono nomi di variabili poco mnemonici. Scegliendoli come nomi di variabile si crea una possible confusione sul significato del programma.
 
-{\tt {\bf for} word {\bf in} words{\bf :}\\
-\verb"    "{\bf print} word }
 
-The parts of the code that are defined by 
-Python ({\tt for}, {\tt in}, {\tt print}, and {\tt :}) are in bold
-and the programmer-chosen variables ({\tt word} and {\tt words}) are not in bold.  
-Many text editors are aware of Python
-syntax and will color reserved words differently to give you clues to keep 
-your variables and reserved words separate.
-After a while you will begin to read Python and quickly determine what
-is a variable and what is a reserved word.
+Non ci vorr\`{a} molto tempo per ricordare che le parole riservate pi\`{u} comuni e si inizier\`{a} quindi ad individuarle con certezza:
 
-\section{Debugging}
-\index{debugging}
+{\tt {\bf for} parola {\bf in} parole{\bf :}\\ \verb"    "{\bf print} parola
+}
 
-At this point, the syntax error you are most likely to make is
-an illegal variable name, like {\tt class} and {\tt yield}, which
-are keywords, or \verb"odd~job" and \verb"US$", which contain
-illegal characters.
+Le parti di codice definite da Python ({\tt for}, {\tt in},
+{\tt print}, e {\tt }:) sono in grassetto e le variabili scelte dal programmatore (parola e parole) non lo sono. Molti editor di testo riconosceranno la sintassi di Python e coloreranno le parole in modo diverso per dare indizi e per mantenere le variabili e parole riservate separati. Dopo un p\`{o} si inizia a leggere Python velocemente ed a determinare quali sono le variabili e quali le parole riservate.
 
-\index{syntax error}
-\index{error!syntax}
+\section{Debug} \index{debugging}
+\index{debuggare}
 
-If you put a space in a variable name, Python thinks it is two
-operands without an operator:
+A questo punto l'errore di sintassi pi\`{u} probabile \`{e} quello di definire un nome scorretto per una variabile, come {\tt class} o {\tt yield}, che sono keywords , o \verb"posto~lavoro" e \verb"US$", che contengono caratteri non validi.
 
-\beforeverb
-\begin{verbatim}
+\index{syntax error} \index{error!syntax}
+\index{errore sintassi} \index{errore!sintassi}
+
+
+Se si mette uno spazio in un nome di variabile, Python pensa che siano due operandi senza un operatore
+
+\beforeverb \begin{verbatim}
 >>> bad name = 5
-SyntaxError: invalid syntax
-\end{verbatim}
-\afterverb
+SyntaxError: invalid syntax \end{verbatim} \afterverb
 %
-For syntax errors, the error messages don't help much.
-The most common messages are {\tt SyntaxError: invalid syntax} and
-{\tt SyntaxError: invalid token}, neither of which is very informative.
+Per gli errori di sintassi, i messaggi di errore non aiutano molto. I messaggi pi\`{u} comuni sono {\tt SyntaxError: invalid syntax} o {\tt SyntaxError:
+invalid token}, nessuno dei quali \`{e} molto informativo.
 
-\index{error message}
-\index{use before def}
-\index{exception}
-\index{runtime error}
-\index{error!runtime}
+\index{messaggio di errore} \index{use before def} \index{eccezione}
+\index{errore runtime} \index{errore!runtime}
 
-The runtime error you are most likely to make is a ``use before
-def;'' that is, trying to use a variable before you have assigned
-a value.  This can happen if you spell a variable name wrong:
+L'errore di runtime pi\`{u} frequente \`{e} {``}use before def;'' cio\`{e} si sta cercando di utilizzare una variabile prima di averle assegnato un valore. Questo pu\`{o} accadere se si scrive il nome sbagliato della variabile:
 
-\beforeverb
-\begin{verbatim}
->>> principal = 327.68
->>> interest = principle * rate
-NameError: name 'principle' is not defined
-\end{verbatim}
-\afterverb
+\beforeverb \begin{verbatim}
+>>> principale = 327.68 
+interesse = principio * tasso
+NameError: name 'principio' is not defined \end{verbatim} \afterverb
 %
-Variables names are case sensitive, so {\tt LaTeX} is not the
-same as {\tt latex}.
+I nomi variabili sono,, quindi {\tt LaTeX} non \`{e} lo stesso di {\tt latex}.
 
-\index{case-sensitivity, variable names}
-\index{semantic error}
-\index{error!semantic}
+\index{case-sensitivit\`{a}, nomi di variabili} \index{errore semantico}
+\index{errore!semantico}
 
-At this point, the most likely cause of a semantic error is
-the order of operations.  For example, to evaluate $\frac{1}{2 \pi}$,
-you might be tempted to write
+Inoltre, la causa pi\`{u} probabile di un errore di semantica \`{e} l'ordine delle operazioni. Ad esempio, per valutare $\frac{1}{2 \pi}$ , si potrebbe essere tentati di scrivere:
 
-\beforeverb
-\begin{verbatim}
+\beforeverb \begin{verbatim}
 >>> 1.0 / 2.0 * pi
-\end{verbatim}
-\afterverb
+\end{verbatim} \afterverb
 %
-But the division happens first, so you would get $\pi / 2$, which
-is not the same thing!  There is no way for Python
-to know what you meant to write, so in this case you don't
-get an error message; you just get the wrong answer.
+Ma la divisione avviene prima, cos\`{i} si otterrebbe $\pi / 2$ , che non \`{e} la stessa cosa! Non c'\`{e} modo per Python per sapere cosa si intende ottenere quindi, in questo caso, non avremo un messaggio di errore ma solo la risposta \`{e} sbagliata.
 
-\index{order of operations}
+\index{ordine delle operazioni}
 
 
-\section{Glossary}
+\section{Glossario}
 
 \begin{description}
 
-\item[assignment:]  A statement that assigns a value to a variable.
-\index{assignment}
+\item[assegnamento:]  una istruzione che assegna un valore ad una variabile.
+\index{assegnamento}
 
-\item[concatenate:]  To join two operands end to end.
-\index{concatenation}
+\item[concatenare:]  unire due operandi consecutivamente.
+\index{concatenare}
 
-\item[comment:]  Information in a program that is meant for other
-programmers (or anyone reading the source code) and has no effect on the
-execution of the program.
-\index{comment}
+\item[commento:]  informazioni poste nel codice dal programmatore destinate ad altri e che non hanno alcun effetto sull'esecuzione del programma. \index{commento}
 
-\item[evaluate:]  To simplify an expression by performing the operations
-in order to yield a single value.
+\item[valutare:]  semplificare un'espressione eseguendo le operazioni allo scopo di ottenere un singolo valore.
 
-\item[expression:]  A combination of variables, operators, and values that
-represents a single result value.
-\index{expression}
+\item[espressione:]  una combinazione di variabili, operatori e valori che rappresenta un valore unico come risultato. \index{espressione}
 
-\item[floating point:] A type that represents numbers with fractional
-parts.
-\index{floating-point}
+\item[float:] un tipo di dato che rappresenta numeri con parti frazionarie.
+ \index{floating-point} \index{float} \index{reale}
 
-\item[floor division:] The operation that divides two numbers and chops off
-the fractional part.
-\index{floor division}
+\item[divisione intera:] l'operazione che divide due numeri e tronca la parte frazionaria. \index{divisione intera}
 
-\item[integer:] A type that represents whole numbers.
-\index{integer}
+\item[integer:] Un tipo di dato che rappresenta numeri interi. \index{integer} \index{intero}
 
-\item[keyword:]  A reserved word that is used by the compiler to parse a
-program; you cannot use keywords like {\tt if}, {\tt  def}, and {\tt while} as
-variable names.
-\index{keyword}
+\item[keyword:]  Una \emph{parola riservata }che viene utilizzata dal compilatore per analizzare un programma; non \`{e} possibile utilizzare keywords come {\tt if}, {\tt  def}, e {\tt
+while} come nomi di variabili. \index{keyword} \index{parola chiave}
 
-\item[mnemonic:] A memory aid. We often give variables mnemonic names
-to help us remember what is stored in the variable.
-\index{mnemonic}
+\item[mnemonico:] in supporto alla memorizzazione. Noi spesso diamo nomi mnemonici alle variabili per aiutarci a ricordare ci\`{o} che \`{e} memorizzato nella variabile stessa.
+ \index{mnemonico}
 
-\item[modulus operator:]  An operator, denoted with a percent sign
-({\tt \%}), that works on integers and yields the remainder when one
-number is divided by another.
-\index{modulus operator}
-\index{operator!modulus}
+\item[operatore modulo:]  un operatore, indicato con un segno di percentuale ( {\tt \% } ), che funziona su numeri interi e restituisce il resto quando un numero viene diviso per un altro.
+\index{operatore modulo} \index{operatore!modulo}
 
-\item[operand:]  One of the values on which an operator operates.
-\index{operand}
+\item[operando:]  Uno dei valori su cui agisce un operatore.
+\index{operando}
 
-\item[operator:]  A special symbol that represents a simple computation like
-addition, multiplication, or string concatenation.
-\index{operator}
+\item[operatore:]  simbolo speciale che rappresenta un'elaborazione semplice come la moltiplicazione, o la concatenazione di stringhe. \index{operatore}
 
-\item[rules of precedence:]  The set of rules governing the order in which
-expressions involving multiple operators and operands are evaluated.
-\index{rules of precedence}
-\index{precedence}
+\item[regole di priorit\`{a}/precedenza:]  l'insieme delle norme che disciplinano l'ordine in cui vengono eseguite le espressioni che coinvolgono pi\`{u} operatori e operandi. \index{regole di precedenza} \index{precedenza}
 
-\item[statement:]  A section of code that represents a command or action.  So
-far, the statements we have seen are assignments and print statements.
-\index{statement}
+\item[istruzione:]  una sezione di codice che rappresenta un comando o un'azione. Finora, le istruzioni che abbiamo visto sono le assegnazioni e l'istruzione \emph{print}.
+ \index{istruzione}
 
-\item[string:] A type that represents sequences of characters.
-\index{string}
+\item[stringa:] un tipo di dato che rappresenta una sequenza di caratteri.
+\index{stringa}
 
-\item[type:] A category of values.  The types we have seen so far
-are integers (type {\tt int}), floating-point numbers (type {\tt
-float}), and strings (type {\tt str}).
-\index{type}
+\item[tipo:] una categoria di valori. I tipi che abbiamo visto finora sono interi (type {\tt int}), numeri in virgola mobile (type {\tt float}) e le stringhe (type {\tt str}).
+\index{tipo}
 
-\item[value:]  One of the basic units of data, like a number or string, 
-that a program manipulates.
-\index{value}
+\item[valore:]  una delle unit\`{a} basilari di dati che i programmi gestiscono, come numeri o stringhe. \index{valore}
 
-\item[variable:]  A name that refers to a value.
-\index{variable}
+\item[variabile:]  un nome che fa riferimento a un valore. \index{variabile}
 
 \end{description}
 
-\section{Exercises}
+\section{Esercizi}
 
-\begin{ex}
-Write a program that uses  \verb"raw_input" to prompt a user for their name 
-and then welcomes them.
+\begin{ex} Scrivere un programma che utilizza \verb"raw_input" per richiedere all'utente il proprio nome e restituisce un saluto.
 
-\begin{verbatim}
-Enter your name: Chuck
-Hello Chuck
-\end{verbatim}
+\begin{verbatim} Scrivi il tuo nome: Chuck Ciao Chuck \end{verbatim}
 
 \end{ex}
 
-\begin{ex}
-Write a program to prompt the user for hours and rate per hour to compute
-gross pay.
-\begin{verbatim}
-Enter Hours: 35
-Enter Rate: 2.75
-Pay: 96.25
-\end{verbatim}
-\end{ex}
+\begin{ex} Scrivere un programma per richiedere all'utente il numero di ore lavorate, la paga oraria e calcolare la retribuzione lorda.
+\begin{verbatim} Scrivi le ore: 35 
+Scrivi la paga oraria: 2.75 
+Paga: 96.25 \end{verbatim} \end{ex}
 %
-We won't worry about making sure our pay has exactly two digits after
-the decimal place for now.  If you want, you can play with the 
-built-in Python {\tt round} function to properly round the resulting pay
-to two decimal places.
+Per ora non preoccuparti di avere un risultato con due cifre decimali. Se si desidera, si pu\`{o} sperimentare la funzione {\tt round }per ottenere un risultato a due cifre decimali.
 
-\begin{ex}
-Assume that we execute the following assignment statements:
+\begin{ex} Eseguiamo le seguenti istruzioni di assegnazione:
 
-\begin{verbatim}
-width = 17
-height = 12.0
-\end{verbatim}
+\begin{verbatim} width = 17 height = 12.0 \end{verbatim}
 
-For each of the following expressions, write the value of the
-expression and the type (of the value of the expression).
+Per ciascuna delle seguenti espressioni, scrivere il valore dell'espressione e il tipo dato (del valore dell'espressione).
 
 \begin{enumerate}
 
@@ -874,13 +649,10 @@ expression and the type (of the value of the expression).
 
 \end{enumerate}
 
-Use the Python interpreter to check your answers.
+Usate Python in modalit\`{a} interprete per controllare le vostre risposte.
 \end{ex}
 
-\begin{ex}
-Write a program which prompts the user for a Celsius temperature,
-convert the temperature to Fahrenheit, and print out the converted
-temperature.
+\begin{ex} Scrivete un programma che richiede all'utente una temperatura Celsius, convertire la temperatura Fahrenheit e restituisce la temperatura convertita.
 \end{ex}
 
 
